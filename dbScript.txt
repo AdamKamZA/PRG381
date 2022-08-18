@@ -1,0 +1,30 @@
+
+create database StudentPortal;
+
+create table Register (
+register_id int not null auto_increment,
+student_name varchar(255),
+student_address varchar(255),
+student_email varchar(255),
+student_passord varchar(255),
+course_name
+primary key (register_id)
+);
+
+
+create table Student (
+student_id int not null auto_increment,
+student_name varchar(255),
+student_address varchar(255),
+student_email varchar(255),
+student_passord varchar(255),
+primary key (register_id)
+);
+
+create table Administrator(
+Admin_id int not null auto_increment,
+Admin_name varchar(255),
+Admin_password varchar(255),
+contact varchar(255),
+primary key (Admin_id)
+);
