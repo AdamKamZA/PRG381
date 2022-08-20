@@ -11,5 +11,9 @@ public class PageController {
     public String index(){
         return "index"; //returning static index html page
     }
+    @GetMapping("/student")
+    public String student(){
+        return "student"; //returning static index html page
+    }
 
 }
