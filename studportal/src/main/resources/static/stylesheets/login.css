@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#main_container{
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/BackgroundDesign.png");
+    background-size: cover;
+}
+#input_container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    width: fit-content;
+    min-width: 300px;
+}
+h1{
+    color: white;
+    font-size: 56px;
+    margin-bottom: 10px;
+    user-select: none;
+}
+form{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 10px;
+}
+form input{
+    font-size: 18px;
+    width: 80%;
+    padding: 10px;
+    border-radius: 0;
+    border: none;
+}
+form button{
+    width: 35%;
+    background-color: #C20200;
+    border: none;
+    box-shadow: 0 0 0 3px white;
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+    transition: all .2s ease;
+}
+form button:hover{
+    box-shadow: 10px 10px 0 0 white;
+}
