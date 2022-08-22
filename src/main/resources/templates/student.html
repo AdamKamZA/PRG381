@@ -18,15 +18,15 @@
             <form id="user_info" action="/">
                 <!-- Placeholders are temporary dummy values -->
                 <label for="" class="user_label">Name:</label>
-                <input type="text" class="user_input" disabled placeholder="John">
+                <input type="text" class="user_input" disabled placeholder="John" th:value="${student.name}">
                 <label for="" class="user_label">Surname:</label>
-                <input type="text" class="user_input" disabled placeholder="Doe">
+                <input type="text" class="user_input" disabled placeholder="Doe" th:text="${student.surname}">
                 <label for="" class="user_label">Address:</label>
-                <input type="text" class="user_input" disabled placeholder="37 Abbot Ave, Pretoria">
+                <input type="text" class="user_input" disabled placeholder="37 Abbot Ave, Pretoria" th:text="${student.address}">
                 <label for="" class="user_label">Email:</label>
-                <input type="text" class="user_input" disabled placeholder="343@student.belgiumcampus.ac.za">
+                <input type="text" class="user_input" disabled placeholder="343@student.belgiumcampus.ac.za" th:text="${student.email}">
                 <label for="" class="user_label">Password:</label>
-                <input type="password" class="user_input" disabled placeholder="*******">
+                <input type="password" class="user_input" disabled placeholder="*******" th:text="${student.password}">
                 <button id="back">DONE</button>
             </section>
         </section>
