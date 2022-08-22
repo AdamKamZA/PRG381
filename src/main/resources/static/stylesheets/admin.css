@@ -112,3 +112,19 @@ h1{
     border: none;
     color: white;
 }
+#back{
+    position: absolute; 
+    top:0;
+    left:0;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 22px;
+    border: 2px solid white;
+    color: white;
+    transition: all .1s ease;
+}
+#back:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #c20200;
+}
