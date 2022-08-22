@@ -11,6 +11,7 @@
 
 <body>
     <div id="main_container">
+        <button id="back">Back</button>
         <div id="bg_left" class="bg"></div>
         <section id="input_container">
             <h1>Admin</h1>
@@ -56,6 +57,13 @@
             </section>
         </section>
     </div>
+    <script>
+        window.addEventListener("DOMContentLoaded",()=>{
+            document.getElementById("back").addEventListener("click",()=>{
+                window.location = '/'; //routing use to login
+            })
+        })
+    </script>
 </body>
 
 </html>
