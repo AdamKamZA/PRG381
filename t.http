@@ -1,0 +1,8 @@
+POST http://localhost:8080/api/admins
+Content-Type: application/json
+
+{
+   "admin_name":"adam",
+   "password":"aaa",
+   "contact":"Francois"
+}

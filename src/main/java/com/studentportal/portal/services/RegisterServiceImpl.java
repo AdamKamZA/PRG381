@@ -1,9 +1,9 @@
-package services;
+package com.studentportal.portal.services;
 
 import org.springframework.stereotype.Service;
 
-import models.Register;
-import repos.RegisterRepo;
+import com.studentportal.portal.models.Register;
+import com.studentportal.portal.repos.RegisterRepo;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {

@@ -1,4 +1,4 @@
-package models;
+package com.studentportal.portal.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,8 +19,8 @@ public class admins {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "Admin_name")
-    private String name;
+    @Column(name = "admin_name")
+    private String admin_name;
 
     @Column(name = "password")
     private String password;

@@ -1,4 +1,4 @@
-package controllers;
+package com.studentportal.portal.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import models.Register;
-import services.RegisterService;
+import com.studentportal.portal.models.Register;
+
+import com.studentportal.portal.services.RegisterService;
 
 @RestController
-@RequestMapping("/api/Registers")
+@RequestMapping("/api/registers")
 public class RegisterController {
     private RegisterService regserv;
 
@@ -25,6 +26,6 @@ public class RegisterController {
     @PostMapping
     public ResponseEntity<Register> saveRegister(@RequestBody Register register){
         return new ResponseEntity<Register>(this.regserv.saveRegister(register), HttpStatus.CREATED);
-        
+
     }
 }

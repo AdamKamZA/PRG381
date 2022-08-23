@@ -1,8 +1,8 @@
-package repos;
+package com.studentportal.portal.repos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import models.Student;
+import com.studentportal.portal.models.Student;
 
 
 public interface studentRepo extends JpaRepository<Student, Integer> {
