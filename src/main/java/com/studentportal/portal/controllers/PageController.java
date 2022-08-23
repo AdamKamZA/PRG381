@@ -3,6 +3,7 @@ package com.studentportal.portal.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PageController {
@@ -19,9 +20,9 @@ public class PageController {
     }
 
     @GetMapping("/student")
-    public String student(Model model) {
-        Student students = new Student();
-        model.addAttribute("student", students);
+    public String student(@RequestParam(value = "name", defaultValue = "Anon", required = true) String name, Model model) {
+        //will be replaced with student details of the object, was only a test
+        model.addAttribute("name",name);
         return "student"; // returning static student html page
     }
 
