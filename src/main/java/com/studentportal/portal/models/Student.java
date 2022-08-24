@@ -1,4 +1,4 @@
-package models;
+package com.studentportal.portal.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,19 +14,23 @@ import lombok.Data;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int student_id;
 
     @Column(name = "student_name", nullable = true)
-    private String name;
+    private String student_name;
 
     @Column(name = "student_address", nullable = true)
-    private String address;
+    private String student_address;
 
     @Column(name = "student_email", nullable = true)
-    private String email;
+    private String student_email;
 
     @Column(name = "student_password", nullable = true)
-    private String password;
+    private String student_password;
+
+    public String getEmail(){
+        return this.student_email;
+    }
 
     
 }

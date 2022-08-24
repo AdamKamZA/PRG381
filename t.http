@@ -1,0 +1,16 @@
+POST http://localhost:8080/api/students/save
+Content-Type: application/json
+
+{
+   "admin_name":"adam",
+   "password":"aaa",
+   "contact":"Francois"
+}
+
+###
+
+GET http://localhost:8080/api/students/all
+
+###
+
+GET http://localhost:8080/api/students/email/a@a.com
