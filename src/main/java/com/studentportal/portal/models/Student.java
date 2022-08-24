@@ -28,5 +28,9 @@ public class Student {
     @Column(name = "student_password", nullable = true)
     private String student_password;
 
+    public String getEmail(){
+        return this.student_email;
+    }
+
     
 }

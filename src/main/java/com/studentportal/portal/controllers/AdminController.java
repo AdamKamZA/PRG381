@@ -13,6 +13,8 @@ import com.studentportal.portal.services.AdminService;
 
 
 
+
+
 @RestController
 @RequestMapping("/api/admins")
 public class AdminController {
@@ -28,6 +30,9 @@ public class AdminController {
     public ResponseEntity<admins> saveRegister(@RequestBody admins admin){
         return new ResponseEntity<admins>(this.adminServ.saveAdmin(admin), HttpStatus.CREATED);
     }
+
+   
+    
 
     
 }
