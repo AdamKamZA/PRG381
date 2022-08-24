@@ -13,7 +13,11 @@ public class PageController {
     }
     @GetMapping("/student")
     public String student(){
-        return "student"; //returning static index html page
+        return "student"; //returning static student html page
+    }
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin"; //returning static admin html page
     }
     @GetMapping("/admin")
     public String admin(){
