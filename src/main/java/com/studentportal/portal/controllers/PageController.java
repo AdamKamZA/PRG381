@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PageController {
 
-    class Student{
-        String name="Adam";
-        String surname="Kaminski";
-        public Student(){}
-    }
     // Routing for home page:
     @GetMapping("/")
     public String index() {
@@ -29,8 +24,6 @@ public class PageController {
     @GetMapping("/admin")
     public String admin(Model model) { // Model model
         // fetch all students
-        Student students = new Student();
-        model.addAttribute("student", students);
         return "admin"; // returning static admin html page
     }
     @GetMapping("/admin")
