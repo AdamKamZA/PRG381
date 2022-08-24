@@ -26,9 +26,5 @@ public class PageController {
         // fetch all students
         return "admin"; // returning static admin html page
     }
-    @GetMapping("/admin")
-    public String admin(){
-        return "admin";
-    }
 
 }
