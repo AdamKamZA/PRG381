@@ -26,5 +26,9 @@ public class PageController {
         // fetch all students
         return "admin"; // returning static admin html page
     }
+    @GetMapping("/error")
+    public String error(){
+        return "error";
+    }
 
 }
