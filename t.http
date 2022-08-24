@@ -11,7 +11,7 @@ POST  http://localhost:8080/api/students/save
 Content-Type: application/json
 
 {
-   "student_name":"Francois Greeff",
+   "student_name":"Ada Greeff",
    "student_address":"1278 ahdsjabhd",
    "student_email":"a@a.om.labs.com",
    "student_password":"123"

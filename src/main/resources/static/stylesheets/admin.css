@@ -78,7 +78,7 @@ h1{
 }
 #form #titles{
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(5,1fr);
     column-gap: 10px;
     /* align-content: baseline; */
 }
@@ -97,7 +97,7 @@ h1{
     width: 100%;
     height: 6%;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(5,1fr);
     column-gap: 10px;
     background-color: rgba(255,255,255,.2);
     align-items: center;
@@ -106,11 +106,15 @@ h1{
     background-color: rgba(255, 0, 0, 0.5);
 }
 #data section input{
-    height: 70%;
+    height: 100%;
     width: 95%;
     background-color: transparent;
     border: none;
     color: white;
+    display: flex;
+}
+#data section input:focus{
+    outline: 1px solid #F9E400;
 }
 #back{
     position: absolute; 
