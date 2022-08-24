@@ -30,17 +30,24 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student getStudent(String email) {
         List<Student> stdns = getAllStudents();
-      
+        
+        Student target = null;
+
         for(Student s : stdns){
             if(s.getEmail()!=null){
                 if(s.getEmail().equalsIgnoreCase(email)){
-                    System.out.println("email found");
-                    return s;
+                    target=s;
+                    break;    
                 }
             }
 
         }
-        throw new ResourceNotFound(email, "email", email);
+        if(target!=null){
+            return target;
+        }
+        else{
+            throw new ResourceNotFound(email, "email", email);
+        }
     }
 
     @Override

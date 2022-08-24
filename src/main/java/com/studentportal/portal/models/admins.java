@@ -22,9 +22,16 @@ public class admins {
     @Column(name = "admin_name")
     private String admin_name;
 
+    @Column(name = "admin_email")
+    private String admin_email;
+
     @Column(name = "password")
     private String password;
 
     @Column(name = "contact")
     private String contact;
+
+    public String getEmail(){
+        return this.admin_email;
+    }
 }

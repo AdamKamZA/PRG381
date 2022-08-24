@@ -1,10 +1,20 @@
-POST http://localhost:8080/api/students/save
+POST http://localhost:8080/api/admins/save
 Content-Type: application/json
 
 {
    "admin_name":"adam",
    "password":"aaa",
    "contact":"Francois"
+}
+###
+POST  http://localhost:8080/api/students/save
+Content-Type: application/json
+
+{
+   "student_name":"Francois Greeff",
+   "student_address":"1278 ahdsjabhd",
+   "student_email":"a@a.om.labs.com",
+   "student_password":"123"
 }
 
 ###
@@ -13,4 +23,66 @@ GET http://localhost:8080/api/students/all
 
 ###
 
+GET http://localhost:8080/api/students/email/adam@test.com
+###
 GET http://localhost:8080/api/students/email/a@a.com
+###
+GET http://localhost:8080/api/students/email/576770@student.belgiumcampus.ac.za
+###
+GET http://localhost:8080/api/students/email/a@a.om.labs.com
+
+###
+
+DELETE http://localhost:8080/api/students/delete/a@a.om.labs.com
+
+###
+
+PUT http://localhost:8080/api/students/update
+Content-Type: application/json
+
+{
+ 
+   "student_name":"Francois Greeff",
+   "student_address":"1278 ahdsjabhd",
+   "student_email":"adam@test.com",
+   "student_password":"33",
+   "email":"adam@test.com"
+
+}
+
+###
+
+POST http://localhost:8080/api/admin/save
+Content-Type: application/json
+
+{
+   "admin_name":"Adam",
+   "admin_email":"b@a.com",
+   "password":"123",
+   "contact":"01239ssssss"
+   
+}
+
+###
+
+GET http://localhost:8080/api/admin/all
+
+###
+
+GET http://localhost:8080/api/admin/email/b@a.com
+
+###
+
+DELETE  http://localhost:8080/api/admin/delete/email/b@a.com
+
+###
+PUT  http://localhost:8080/api/admin/update
+Content-Type: application/json
+
+{
+    "admin_name":"Adam",
+   "admin_email":"a@a.com",
+   "password":"123",
+   "contact":"01239ssssss"
+}
+
