@@ -1,4 +1,4 @@
-package com.prgproject.studportal;
+package com.studentportal.portal.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +10,14 @@ public class PageController {
     @GetMapping("/")
     public String index(){
         return "index"; //returning static index html page
+    }
+    @GetMapping("/student")
+    public String student(){
+        return "student"; //returning static index html page
+    }
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
     }
 
 }

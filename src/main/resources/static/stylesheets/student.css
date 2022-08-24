@@ -1,0 +1,122 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#main_container{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.bg{
+    height: 100%;
+    width: 424px;
+    position: absolute;
+    top: 0;
+    background-image: url("../images/bg_stripe.png");
+    background-size: cover;
+}
+#bg_right{
+    right: 0;
+    transform: rotateX(180deg) rotateY(180deg);
+}
+#data{
+    width: 33%;
+    height: 90%;
+    margin: auto;
+    color: white;
+    font-family: sans-serif;
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    row-gap: 50px;
+}
+h1{
+    margin: auto;
+    text-align: center;
+    height: 100%;
+    font-size: 48px;
+}
+#user_info{
+    display: grid;
+    grid-template-rows: .2fr 1fr .2fr 1fr .2fr 1fr .2fr 1fr .2fr 1fr;
+    row-gap: 10px;
+    text-align: center;
+}
+.user_input{
+    color: white;
+    height: 70%;
+    width: 50%;
+    min-width: fit-content;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,.2);
+    border: none;
+    padding: 0 10px;
+    text-align: center;
+}
+.user_input:focus{
+    outline: none;
+    background-color: rgba(255,255,255,.5)
+}
+#back{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 50%;
+
+    background-color: black;
+    color: white;
+    outline: 8px #F9E400 solid;
+    box-shadow: 0 10px 0 8px black,  0 15px 0 8px white;
+    transition: all .2s ease;
+}
+#back:hover{
+    box-shadow: 0 -1px 0 8px black,  0 5px 0 8px white;
+    transform: translateY(10px);
+}
+
+@media screen and (max-width:1075px) {
+    .bg{
+        width: 249px;
+    }
+}
+@media screen and (max-width:725px) {
+    .bg{
+        width: 121px;
+    }
+    h1{
+        font-size: 28px;
+    }
+}
+@media screen and (max-width:375px) {
+    #bg_right{
+        display: none;
+    }
+    #data{
+        width: 40%;
+        float:right;
+        margin-right: 13%;
+    }
+    
+}
+@media screen and (max-width:250px) {
+    .bg{
+        display: none;
+    }
+    #data{
+        width: 100%;
+        margin: auto;
+    }
+    h1{
+        font-size: large;
+    }
+    
+}
