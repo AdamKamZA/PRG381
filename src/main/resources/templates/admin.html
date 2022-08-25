@@ -27,7 +27,6 @@
                     <span class="title">Course Name:</span>
                 </div>
                 <div id="data">
-                    <!-- Would need to iterate through all data using thymeleaf templating -->
                     <section th:each="stud:${students}">
                         <input th:value="${stud.getString('name').substring(0,stud.getString('name').indexOf(' '))}">
                         <input th:value="${stud.getString('name').substring(stud.getString('name').indexOf(' '))}">
