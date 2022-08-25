@@ -77,16 +77,16 @@ public class PageController {
 
             //See if admin exists
             //unfinished
-            String uri = String.format("http://localhost:8080/api/students/email/%s", email);
-            RestTemplate rt = new RestTemplate();
-            apiStudent student = rt.getForObject(uri, apiStudent.class);
-            JSONObject JSON_Student = new JSONObject(student.toString());
+            // String uri = String.format("http://localhost:8080/api/students/email/%s", email);
+            // RestTemplate rt = new RestTemplate();
+            // apiStudent student = rt.getForObject(uri, apiStudent.class);
+            // JSONObject JSON_Student = new JSONObject(student.toString());
 
-            // Check if the passwords match
-            if (!JSON_Student.get("password").toString().equals(password)) {
-                model.addAttribute("state", false); // tells page if its first time render or a redirect back
-                return "index";
-            }
+            // // Check if the passwords match
+            // if (!JSON_Student.get("password").toString().equals(password)) {
+            //     model.addAttribute("state", false); // tells page if its first time render or a redirect back
+            //     return "index";
+            // }
             
             String uri = "http://localhost:8080/api/registration/all";
             RestTemplate rt = new RestTemplate();

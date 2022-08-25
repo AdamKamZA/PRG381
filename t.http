@@ -23,7 +23,7 @@ GET http://localhost:8080/api/students/all
 
 ###
 
-GET http://localhost:8080/api/students/email/a@a.om.labs.com
+GET http://localhost:8080/api/students/email/a@j.com
 ###
 GET http://localhost:8080/api/students/email/a@a.com
 ###
@@ -33,7 +33,7 @@ GET http://localhost:8080/api/students/email/a@a.om.labs.com
 
 ###
 
-DELETE http://localhost:8080/api/students/delete/a@a.om.labs.com
+DELETE http://localhost:8080/api/students/delete/a@j.com
 
 ###
 
