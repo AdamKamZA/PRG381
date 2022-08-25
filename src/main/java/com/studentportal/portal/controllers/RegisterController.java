@@ -54,7 +54,7 @@ public class RegisterController {
 
     @PutMapping(value = "/api/Registration/update")
     public ResponseEntity<Register> update(@RequestBody Register register){
-        return new ResponseEntity<Register>(this.regserv.updateRegistration(register.getEmail(), register.getCourse(), register), HttpStatus.OK);
+        return new ResponseEntity<Register>(this.regserv.updateRegistration(register.getStudent_email(), register.getCourse_name(), register), HttpStatus.OK);
 
     }
     
