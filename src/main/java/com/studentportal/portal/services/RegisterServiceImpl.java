@@ -122,5 +122,4 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     // crud complete
-
 }
