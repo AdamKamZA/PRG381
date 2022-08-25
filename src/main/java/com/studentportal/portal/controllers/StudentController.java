@@ -49,12 +49,11 @@ public class StudentController {
         return new ResponseEntity<Student>(studentService.deleteStudent(email), HttpStatus.OK);
     }
 
-     // update by email, this is a put request because repo does not have a update function,
-     //solution is to delete old data and save new data, this acts as update but drawback is ID changes
+    
     @PutMapping(value = "/api/students/update")
     public ResponseEntity<Student> updateStudent(@RequestBody Student student){
        
-        return new ResponseEntity<Student>(this.studentService.update(student.getEmail(), student), HttpStatus.OK);
+        return new ResponseEntity<Student>(this.studentService.update(student), HttpStatus.OK);
     }
 
     //crud complete

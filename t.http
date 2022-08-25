@@ -41,9 +41,9 @@ PUT http://localhost:8080/api/students/update
 Content-Type: application/json
 
 {
- 
+   "student_id":13,
    "student_name":"Francois Greeff",
-   "student_address":"1278 ahdsjabhd",
+   "student_address":" ahdsjabhd",
    "student_email":"adam@test.com",
    "student_password":"33",
    "email":"adam@test.com"
