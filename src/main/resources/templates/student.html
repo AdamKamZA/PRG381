@@ -51,7 +51,7 @@
                 //access all sibling data
                 let siblings = [].slice.call(btnUpdate.parentElement.childNodes);
                 siblings = siblings.filter(item => item.localName == "input");
-                let name = (siblings[0].value +" "+ siblings[1].value).replace(/  +/g," ");
+                let name = (siblings[0].value +" "+ siblings[1].value).replace(/  +/g," "); //removing additional blank spaces
                 const requestOptions = {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RegisterService {
     Register saveRegister(Register register);
-    List<Register> getAllRegistratrions();
+    List<Register> getAllRegistrations();
     List<Register> getRegisteredStudent(String email) ;
    
     Register deleteRegistration(String email, String course); 

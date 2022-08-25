@@ -43,6 +43,9 @@ public class apiStudent {
     }
     @Override
     public String toString(){
+        if(student_name.indexOf(" ")==-1){
+            student_name = student_name + " None";
+        }
         return String.format("{'name':%s , 'address':%s , 'email':%s , 'password':%s}", student_name, student_address, student_email, student_password);
     }
 }

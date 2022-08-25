@@ -44,7 +44,7 @@ public class RegisterController {
 
     @GetMapping(value = "/api/registration/all")
     public ResponseEntity<List<Register>> getAllReg(){
-        return new ResponseEntity<List<Register>>(this.regserv.getAllRegistratrions(), HttpStatus.OK);
+        return new ResponseEntity<List<Register>>(this.regserv.getAllRegistrations(), HttpStatus.OK);
     }
 
     @GetMapping(value="/api/registration/email/{email}")

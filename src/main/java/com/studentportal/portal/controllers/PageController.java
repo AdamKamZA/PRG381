@@ -63,6 +63,7 @@ public class PageController {
             JSONObject JSON_Student = new JSONObject(student.toString());
             JSON_ARR_Students.add(JSON_Student);
         }
+        System.out.println(JSON_ARR_Students.get(0));
         model.addAttribute("students", JSON_ARR_Students);
         return "admin"; // returning static admin html page
     }
