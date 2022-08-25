@@ -1,14 +1,9 @@
 package com.studentportal.portal.services;
 
-<<<<<<< HEAD
-import java.util.List;
-
-=======
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
->>>>>>> e08502f6aab96782fb5faee51ebcc404a55a61ca
 import org.springframework.stereotype.Service;
 
 import com.studentportal.portal.exceptions.ResourceNotFound;
@@ -30,31 +25,6 @@ public class RegisterServiceImpl implements RegisterService{
     }
 
     @Override
-<<<<<<< HEAD
-    public List<Register> getAllRegistratrions() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public List<Register> getRegisteredStudent(String email) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Register deleteRegistration(String email, String course) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Register updateRegistration(String email, String course) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-=======
     public Register deleteRegistration(String email, String course) { //search via email, expecting list, filter again via course then delete, deleteing all encounter of the student
         try{
         List<Register> selectRegViaEmail = getRegisteredStudent(email);        
@@ -163,7 +133,6 @@ public class RegisterServiceImpl implements RegisterService{
 //crud complete
    
 
->>>>>>> e08502f6aab96782fb5faee51ebcc404a55a61ca
     
     
 }

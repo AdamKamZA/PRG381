@@ -34,7 +34,7 @@ public class PageController {
             RestTemplate rt = new RestTemplate();
             apiStudent student = rt.getForObject(uri, apiStudent.class);
             JSONObject JSON_Student = new JSONObject(student.toString());
-            System.out.println("Made it here");
+            
             //Check if the passwords match
             if (!JSON_Student.get("password").toString().equals(password)) {
                 model.addAttribute("state", false); // tells page if its first time render or a redirect back
