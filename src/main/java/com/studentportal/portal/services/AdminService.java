@@ -8,6 +8,6 @@ public interface AdminService {
     admins saveAdmin(admins admin);
     admins getAdmin(String email);
     admins deleteAdmin(String email);
-    admins updateAdmins(String email,admins admin);
+    admins updateAdmins(admins admin);
     List<admins> getAllAdmins();
 }

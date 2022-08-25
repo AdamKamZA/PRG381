@@ -41,10 +41,10 @@ PUT http://localhost:8080/api/students/update
 Content-Type: application/json
 
 {
- 
+   "student_i":13,
    "student_name":"Francois Greeff",
-   "student_address":"1278 ahdsjabhd",
-   "student_email":"a@a.om.labs.com",
+   "student_address":" ahdsjabhd",
+   "student_email":"adam@test.com",
    "student_password":"33",
    "email":"a@a.om.labs.com"
 
@@ -91,9 +91,23 @@ POST http://localhost:8080/api/registration/save
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
    "student_name":"Adam Kam",
    "student_address":"1278 ahdsjabhd",
    "student_email":"a@j.com",
    "student_password":"123",
    "course_name":"BComp"
 }
+=======
+  
+   "student_name":"adam",
+   "student_address":"226 nikaragua",
+   "student_email": "12@12.com",
+   "student_password":"aaa",
+   "course_name":"prg"
+}
+
+###
+
+GET http://localhost:8080/api/registration/all
+>>>>>>> b5c525a93046998b22a80a8fd2ab931d18f99103

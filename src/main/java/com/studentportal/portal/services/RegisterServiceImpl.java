@@ -33,14 +33,13 @@ public class RegisterServiceImpl implements RegisterService {
             Register lastEncounter = null;
 
             for (Register reg : selectRegViaEmail) {
-                if (reg.getCourse() != null) {
-                    if (reg.getCourse().equalsIgnoreCase(course)) {
+                if (reg.getCourse_name() != null) {
+                    if (reg.getCourse_name().equalsIgnoreCase(course)) {
                         regRepo.delete(reg);
                         lastEncounter = reg;
                     }
                 }
             }
-
             return lastEncounter; // return proof of deleted student
         } catch (Exception e) {
             return null;
@@ -59,8 +58,8 @@ public class RegisterServiceImpl implements RegisterService {
         ArrayList<Register> selectReg = new ArrayList<>();
 
         for (Register registration : reg) {
-            if (registration.getEmail() != null) {
-                if (registration.getEmail().equalsIgnoreCase(email)) {
+            if (registration.getStudent_email() != null) {
+                if (registration.getStudent_email().equalsIgnoreCase(email)) {
                     selectReg.add(registration);
                 }
             }
@@ -77,8 +76,8 @@ public class RegisterServiceImpl implements RegisterService {
             ArrayList<Register> courseList = new ArrayList<>();
 
             for (Register reg : emailFiltered) {
-                if (reg.getCourse() != null) {
-                    if (reg.getCourse().equalsIgnoreCase(course)) {
+                if (reg.getCourse_name() != null) {
+                    if (reg.getCourse_name().equalsIgnoreCase(course)) {
                         courseList.add(reg);
                     }
                 }
@@ -88,21 +87,21 @@ public class RegisterServiceImpl implements RegisterService {
                 throw new ResourceNotFound(email, course, courseList);
             } else {
                 // only updating first match
-                try {
-                    Register match = courseList.get(0);
-                    regRepo.delete(match);
-                    saveRegister(registration);
-                    return getRegisteredStudent(email).get(0);
-                } catch (Exception e) {
-                    System.out.println(e.getLocalizedMessage());
-                    return null;
-                }
+
+                Register match = courseList.get(0);
+                match.setCourse_name(registration.getCourse_name());
+                match.setStudent_address(registration.getStudent_address());
+                match.setStudent_email(registration.getStudent_email());
+                match.setStudent_password(registration.getStudent_password());
+                match.setCourse_name(registration.getCourse_name());
+                saveRegister(match);
+                return match;
             }
+
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
             return null;
         }
-
     }
 
     @Override
@@ -111,15 +110,14 @@ public class RegisterServiceImpl implements RegisterService {
         ArrayList<Register> courseList = new ArrayList<>();
 
         for (Register reg : allReg) {
-            if (reg.getCourse() != null) {
-                if (reg.getCourse().equalsIgnoreCase(course)) {
+            if (reg.getCourse_name() != null) {
+                if (reg.getCourse_name().equalsIgnoreCase(course)) {
                     courseList.add(reg);
                 }
             }
         }
-
         return (List<Register>) courseList;
-    }
 
+    }
     // crud complete
 }

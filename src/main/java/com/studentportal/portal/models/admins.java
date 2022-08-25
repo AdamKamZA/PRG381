@@ -31,7 +31,5 @@ public class admins {
     @Column(name = "contact")
     private String contact;
 
-    public String getEmail(){
-        return this.admin_email;
-    }
+   
 }
