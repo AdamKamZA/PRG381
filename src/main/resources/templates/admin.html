@@ -45,7 +45,7 @@
                 window.location = '/'; //routing use to login
             })
             let btnsUpdate = document.getElementsByClassName("update");
-            console.log(btnsUpdate)
+
             for (let i = 0; i < btnsUpdate.length; i++) {
                 //add event listener that makes update request
                 btnsUpdate[i].addEventListener("click", () => {
@@ -56,7 +56,7 @@
                     const requestOptions = {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ "student_name": (siblings[0].value + " " + siblings[1].value), "student_address": siblings[2].value, "student_email": siblings[3].id, "email": siblings[3].id })
+                        body: JSON.stringify({ "student_name": (siblings[0].value + siblings[1].value), "student_address": siblings[2].value, "student_email": siblings[3].id, "email": siblings[3].id })
                     };
                     fetch('http://localhost:8080/api/students/update', requestOptions)
                         .then(response => {

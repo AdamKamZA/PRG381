@@ -62,7 +62,7 @@ public class StudentServiceImpl implements StudentService{
             return null;
         }
     }
-
+    
     @Override
     public Student update(String email,Student newStudentData) {
       try{
