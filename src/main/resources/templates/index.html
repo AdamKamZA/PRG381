@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,32 @@
     <link rel="stylesheet" href="./stylesheets/index.css">
     <title>BC Student Portal - Login</title>
 </head>
+
 <body>
-    <div id="main_container">
+    <div id="main_container" th:attr="data-state=${state}">
         <div class="bg" id="bg_top"></div>
         <div class="bg" id="bg_bottom"></div>
         <section id="input_container">
             <h1>Login</h1>
-            <form action="/" method="POST">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+            <form action="/student" method="get" id="loginForm">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
                 <button type="submit">Login</button>
+                <span id="error" style="color: #c20200;font-weight: bold;display: none;">Invalid credentials!</span>
             </form>
         </section>
     </div>
-    <Script>
-        document.addEventListener("DOMContentLoaded",()=>{
-            document.getElementById('submit').addEventListener('click',()=>{
-                //use fetch to get data and then route if we can
-                
-            })
-        })
-    </Script>
 </body>
+<script>
+    window.addEventListener("DOMContentLoaded",()=>{
+        let state = document.getElementById("main_container").getAttribute('data-state');
+        if(state === "false"){
+            //fake redirect
+            window.history.pushState("","",'/');
+            //display error in credentials
+            document.getElementById("error").style.display = "block";
+        }
+    })
+</script>
+
 </html>

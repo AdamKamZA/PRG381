@@ -11,9 +11,9 @@ POST  http://localhost:8080/api/students/save
 Content-Type: application/json
 
 {
-   "student_name":"Francois Greeff",
+   "student_name":"Adam Kam",
    "student_address":"1278 ahdsjabhd",
-   "student_email":"a@a.om.labs.com",
+   "student_email":"a@j.com",
    "student_password":"123"
 }
 
@@ -23,7 +23,7 @@ GET http://localhost:8080/api/students/all
 
 ###
 
-GET http://localhost:8080/api/students/email/adam@test.com
+GET http://localhost:8080/api/students/email/a@a.om.labs.com
 ###
 GET http://localhost:8080/api/students/email/a@a.com
 ###
@@ -33,7 +33,7 @@ GET http://localhost:8080/api/students/email/a@a.om.labs.com
 
 ###
 
-DELETE http://localhost:8080/api/students/delete/a@a.om.labs.com
+DELETE http://localhost:8080/api/students/delete/a@a.om.labs.comz
 
 ###
 
@@ -43,10 +43,15 @@ Content-Type: application/json
 {
    "student_id":13,
    "student_name":"Francois Greeff",
+<<<<<<< HEAD
    "student_address":" ahdsjabhd",
    "student_email":"adam@test.com",
+=======
+   "student_address":"1278 ahdsjabhd",
+   "student_email":"a@a.om.labs.com",
+>>>>>>> 1ffb1207aa3fc8a5c2362f70986f050770ebd02f
    "student_password":"33",
-   "email":"adam@test.com"
+   "email":"a@a.om.labs.com"
 
 }
 

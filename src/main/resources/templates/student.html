@@ -14,23 +14,60 @@
         <div id="bg_left" class="bg"></div>
         <div id="bg_right" class="bg"></div>
         <section id="data">
-            <h1 th:text="'Welcome, '+ ${name}"/>
-            <form id="user_info" action="/">
+            <h1 th:text="'Welcome, '+ ${student.getString('name')}" />
+            <section id="user_info">
                 <!-- Placeholders are temporary dummy values -->
                 <label for="" class="user_label">Name:</label>
-                <input type="text" class="user_input" disabled placeholder="John" >
+                <input type="text" class="user_input" placeholder="John"
+                    th:value="${student.getString('name').substring(0,student.getString('name').indexOf(' '))}">
                 <label for="" class="user_label">Surname:</label>
-                <input type="text" class="user_input" disabled placeholder="Doe" >
+                <input type="text" class="user_input" placeholder="Doe"
+                    th:value="${student.getString('name').substring(student.getString('name').indexOf(' ')+1)}">
                 <label for="" class="user_label">Address:</label>
-                <input type="text" class="user_input" disabled placeholder="37 Abbot Ave, Pretoria">
+                <input type="text" class="user_input" placeholder="37 Abbot Ave, Pretoria"
+                    th:value="${student.getString('address')}">
                 <label for="" class="user_label">Email:</label>
-                <input type="text" class="user_input" disabled placeholder="343@student.belgiumcampus.ac.za">
+                <input type="email" class="user_input" placeholder="343@student.belgiumcampus.ac.za"
+                    th:value="${student.getString('email')}">
                 <label for="" class="user_label">Password:</label>
-                <input type="password" class="user_input" disabled placeholder="*******">
+                <input type="password" class="user_input" placeholder="*******" th:value="${student.get('password')}"
+                    th:id="${student.get('password')}">
                 <button id="back">DONE</button>
             </section>
         </section>
     </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            // document.getElementById("back").addEventListener("click", () => {
+            //     window.location = '/'; //routing use to login
+            // })
+
+            let btnUpdate = document.getElementById("back");
+
+
+            //add event listener that makes update request
+            btnUpdate.addEventListener("click", () => {
+                //post data
+                //access all sibling data
+                let siblings = [].slice.call(btnUpdate.parentElement.childNodes);
+                siblings = siblings.filter(item => item.localName == "input");
+                let name = (siblings[0].value +" "+ siblings[1].value).replace(/  +/g," ");
+                const requestOptions = {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ "student_name": name, "student_address": siblings[2].value, "student_email": siblings[3].value, "email": siblings[3].value })
+                };
+                fetch('http://localhost:8080/api/students/update', requestOptions)
+                    .then(response => {
+                        alert("User updated"); //can change
+                        window.location = '/';
+                    });//show updated record if we want
+            })
+
+            //SPEAK ABOUT CHANGING EMAIL
+        }
+        )
+    </script>
 </body>
 
 </html>
