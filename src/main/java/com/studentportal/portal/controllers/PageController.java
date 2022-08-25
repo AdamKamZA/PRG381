@@ -70,8 +70,7 @@ public class PageController {
     // }
 
     @GetMapping("/admin")
-    public String admin(@RequestParam(value = "email", required = true) String email,
-            @RequestParam(value = "password", required = true) String password, Model model) { // Model model
+    public String admin(Model model) { // Model model
 
         try {
 
