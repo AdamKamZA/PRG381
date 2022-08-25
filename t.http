@@ -86,3 +86,11 @@ Content-Type: application/json
    "contact":"01239ssssss"
 }
 
+###
+
+POST http://localhost:8080/api/registration/save 
+Content-Type: application/json
+
+{
+   
+}
