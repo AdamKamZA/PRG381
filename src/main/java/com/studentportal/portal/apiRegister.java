@@ -45,4 +45,13 @@ public class apiRegister {
         this.course_name = course_name;
     }
 
+    @Override
+    public String toString(){
+        //Handling names without a surname, prevent templating errors
+        if(student_name.indexOf(" ")==-1){
+            student_name = student_name + " None";
+        }
+        return String.format("{'name':%s , 'address':%s , 'email':%s , 'password':%s, 'course':%s}", student_name, student_address, student_email, student_password, course_name);
+    }
+
 }

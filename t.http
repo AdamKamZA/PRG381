@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/admins/save
+POST http://localhost:8080/api/admin/save
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ GET http://localhost:8080/api/students/email/a@a.om.labs.com
 
 ###
 
-DELETE http://localhost:8080/api/students/delete/a@a.om.labs.comz
+DELETE http://localhost:8080/api/students/delete/a@a.om.labs.com
 
 ###
 
@@ -60,7 +60,6 @@ Content-Type: application/json
    "admin_email":"b@a.com",
    "password":"123",
    "contact":"01239ssssss"
-   
 }
 
 ###
@@ -92,5 +91,9 @@ POST http://localhost:8080/api/registration/save
 Content-Type: application/json
 
 {
-   
+   "student_name":"Adam Kam",
+   "student_address":"1278 ahdsjabhd",
+   "student_email":"a@j.com",
+   "student_password":"123",
+   "course_name":"BComp"
 }

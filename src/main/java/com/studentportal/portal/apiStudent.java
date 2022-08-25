@@ -43,6 +43,7 @@ public class apiStudent {
     }
     @Override
     public String toString(){
+        //Handling names without a surname, prevent templating errors
         if(student_name.indexOf(" ")==-1){
             student_name = student_name + " None";
         }
