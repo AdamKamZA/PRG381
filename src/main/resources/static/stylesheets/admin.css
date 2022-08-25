@@ -78,7 +78,7 @@ h1{
 }
 #form #titles{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(6,1fr);
     column-gap: 10px;
     /* align-content: baseline; */
 }
@@ -97,7 +97,7 @@ h1{
     width: 100%;
     height: 6%;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(6,1fr);
     column-gap: 10px;
     background-color: rgba(255,255,255,.2);
     align-items: center;
@@ -131,4 +131,16 @@ h1{
     cursor: pointer;
     background-color: white;
     color: #c20200;
+}
+.update{
+    width: 90%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid #F9E400;
+    box-shadow: inset 0 0 0 -10px #F9E400;
+    transition: all .2s ease;
+}
+.update:hover{
+    box-shadow: inset 0 0 0 10px #F9E400;
+    border-radius: 15px;
 }
