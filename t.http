@@ -43,13 +43,8 @@ Content-Type: application/json
 {
    "student_id":13,
    "student_name":"Francois Greeff",
-<<<<<<< HEAD
    "student_address":" ahdsjabhd",
    "student_email":"adam@test.com",
-=======
-   "student_address":"1278 ahdsjabhd",
-   "student_email":"a@a.om.labs.com",
->>>>>>> 1ffb1207aa3fc8a5c2362f70986f050770ebd02f
    "student_password":"33",
    "email":"a@a.om.labs.com"
 
