@@ -31,5 +31,12 @@ public class Register {
     @Column(name = "course_name", nullable = false)
     private String course_name;
 
+    public String getEmail(){
+        return this.student_email;
+    }
+
+    public String getCourse(){
+        return this.course_name;
+    }
     
 }
