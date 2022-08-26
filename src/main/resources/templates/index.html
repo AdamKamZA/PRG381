@@ -18,7 +18,7 @@
             <form action="/student" method="get" id="loginForm">
                 <input type="email" placeholder="Email" name="email">
                 <input type="password" placeholder="Password" name="password">
-                <button type="submit">Login</button>
+                <div><button type="submit">Login</button><div id="checkbox"><input type="checkbox" name="admin" id="isAdmin">Admin</div></div>
                 <span id="error" style="color: #c20200;font-weight: bold;display: none;">Invalid credentials!</span>
             </form>
         </section>
@@ -26,6 +26,20 @@
 </body>
 <script>
     window.addEventListener("DOMContentLoaded",()=>{
+        //form routing
+        let form = document.getElementById("loginForm");
+        let change = true;
+        document.getElementById("isAdmin").addEventListener("change",()=>{
+            if(change){
+                form.action = "/admin";
+                change = false;
+            }else{
+                form.action = "/student"
+                change = true;
+            }
+        })
+
+
         let state = document.getElementById("main_container").getAttribute('data-state');
         if(state === "false"){
             //fake redirect

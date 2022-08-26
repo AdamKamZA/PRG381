@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class apiAdmin {
     //Admin JSON keys
-    private String admin_name, admin_email, password, contact;
+    private String admin_name, admin_email, admin_password, contact;
 
     public apiAdmin(){}
 
@@ -25,12 +25,12 @@ public class apiAdmin {
         this.admin_email = admin_email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAdmin_password() {
+        return admin_password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAdmin_password(String admin_password) {
+        this.admin_password = admin_password;
     }
 
     public String getContact() {
@@ -39,5 +39,10 @@ public class apiAdmin {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+    @Override
+    public String toString(){
+        //Handling names without a surname, prevent templating errors
+        return String.format("{'email':%s, 'password':%s}",admin_email, admin_password);
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.studentportal.portal.apiAdmin;
 import com.studentportal.portal.apiRegister;
 import com.studentportal.portal.apiStudent;
 import com.studentportal.portal.services.StudentServiceImpl;
@@ -52,40 +53,23 @@ public class PageController {
         }
     }
 
-    // @GetMapping("/admin")
-    // public String admin(Model model) { // Model model
-    // // fetch all students
-
-    // String uri = "http://localhost:8080/api/students/all";
-    // RestTemplate rt = new RestTemplate();
-    // apiStudent[] arr_Students = rt.getForObject(uri, apiStudent[].class);
-    // ArrayList<JSONObject> JSON_ARR_Students = new ArrayList<JSONObject>();
-    // for (apiStudent student : arr_Students) {
-    // JSONObject JSON_Student = new JSONObject(student.toString());
-    // JSON_ARR_Students.add(JSON_Student);
-    // }
-    // System.out.println(JSON_ARR_Students.get(0));
-    // model.addAttribute("students", JSON_ARR_Students);
-    // return "admin"; // returning static admin html page
-    // }
-
     @GetMapping("/admin")
-    public String admin(Model model) { // Model model
+    public String admin(@RequestParam(value = "email", required = true) String email,
+    @RequestParam(value = "password", required = true) String password, Model model) { // Model model
 
         try {
+            //check if admin exists
+            String uriAdmin = String.format("http://localhost:8080/api/admin/email/%s", email);
+            RestTemplate rtAdmin = new RestTemplate();
+            apiAdmin admin = rtAdmin.getForObject(uriAdmin, apiAdmin.class);
+            JSONObject JSON_Admin = new JSONObject(admin.toString());
 
-            //See if admin exists
-            //unfinished
-            // String uri = String.format("http://localhost:8080/api/students/email/%s", email);
-            // RestTemplate rt = new RestTemplate();
-            // apiStudent student = rt.getForObject(uri, apiStudent.class);
-            // JSONObject JSON_Student = new JSONObject(student.toString());
-
-            // // Check if the passwords match
-            // if (!JSON_Student.get("password").toString().equals(password)) {
-            //     model.addAttribute("state", false); // tells page if its first time render or a redirect back
-            //     return "index";
-            // }
+            // Check if the passwords match
+            if (!JSON_Admin.get("password").toString().equals(password)) {
+                model.addAttribute("state", false); // tells page if its first time render or a redirect back
+                return "index";
+            }
+            
             
             String uri = "http://localhost:8080/api/registration/all";
             RestTemplate rt = new RestTemplate();

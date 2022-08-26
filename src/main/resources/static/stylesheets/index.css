@@ -54,7 +54,7 @@ h1{
 }
 form{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: 10px;
 }
 form input{
@@ -64,8 +64,14 @@ form input{
     border-radius: 0;
     border: none;
 }
-form button{
-    width: 35%;
+form div{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+form div button{
+    width: 90%;
+    height: 100%;
     background-color: #C20200;
     border: none;
     box-shadow: 0 0 0 3px white;
@@ -73,7 +79,20 @@ form button{
     font-size: 16px;
     font-family: sans-serif;
     transition: all .2s ease;
+
+    display: inline;
 }
-form button:hover{
+form div input{
+    display: inline;
+}
+#checkbox{
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+#checkbox input{
+    height: 16px;
+}
+form div button:hover{
     box-shadow: 10px 10px 0 0 white;
 }
