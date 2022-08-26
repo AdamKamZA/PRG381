@@ -17,6 +17,9 @@
             <h1 th:text="'Welcome, '+ ${student.getString('name')}" />
             <section id="user_info">
                 <!-- Placeholders are temporary dummy values -->
+                <label for="" class="user_label">ID:</label>
+                <input type="text" class="user_input" placeholder="None" th:value="${student.getInt('id')}" disabled
+                    style="opacity: .7;">
                 <label for="" class="user_label">Name:</label>
                 <input type="text" class="user_input" placeholder="John"
                     th:value="${student.getString('name').substring(0,student.getString('name').indexOf(' '))}">
@@ -32,38 +35,43 @@
                 <label for="" class="user_label">Password:</label>
                 <input type="password" class="user_input" placeholder="*******" th:value="${student.get('password')}"
                     th:id="${student.get('password')}">
-                <button id="back">DONE</button>
+                <button id="update" class="button">DONE</button>
             </section>
+
+            <button id="back" class="button">Back</button>
         </section>
     </div>
     <script>
         window.addEventListener("DOMContentLoaded", () => {
-            // document.getElementById("back").addEventListener("click", () => {
-            //     window.location = '/'; //routing use to login
-            // })
-
-            let btnUpdate = document.getElementById("back");
-
-
+            let btnUpdate = document.getElementById("update");
+            let btnBack = document.getElementById("back").addEventListener("click", () => {
+                window.location = '/';
+            })
             //add event listener that makes update request
             btnUpdate.addEventListener("click", () => {
                 //post data
                 //access all sibling data
                 let siblings = [].slice.call(btnUpdate.parentElement.childNodes);
                 siblings = siblings.filter(item => item.localName == "input");
-                let name = (siblings[0].value +" "+ siblings[1].value).replace(/  +/g," "); //removing additional blank spaces
-                const requestOptions = {
+                let name = (siblings[1].value + " " + siblings[2].value).replace(/  +/g, " "); //removing additional blank spaces
+                const requestOptionsStudent = {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ "student_name": name, "student_address": siblings[2].value, "student_email": siblings[3].value, "email": siblings[3].value })
+                    body: JSON.stringify({ "student_id": siblings[0].value, "student_name": name, "student_address": siblings[3].value, "student_email": siblings[4].value, "student_password": siblings[5].value })
                 };
-                fetch('http://localhost:8080/api/students/update', requestOptions)
-                    .then(response => {
-                        alert("User updated"); //can change
-                        window.location = '/';
-                    });//show updated record if we want
+                const requestOptionsRegister = {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ "id": siblings[0].value, "student_name": name, "student_address": siblings[3].value, "student_email": siblings[4].value, "student_password": siblings[5].value, "course_name":null })
+                };
+                fetch('http://localhost:8080/api/students/update', requestOptionsStudent)
+                    .then(() => {
+                        fetch('http://localhost:8080/api/registration/update', requestOptionsRegister).then((response, err)=>{
+                            if(err) {alert(err)}
+                            else{alert("User updated");};
+                        })
+                    });
             })
-
             //SPEAK ABOUT CHANGING EMAIL
         }
         )

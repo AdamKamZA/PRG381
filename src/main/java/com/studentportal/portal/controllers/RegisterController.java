@@ -48,13 +48,13 @@ public class RegisterController {
     }
 
     @GetMapping(value="/api/registration/email/{email}")
-    public ResponseEntity<List<Register>> getMethodName(@PathVariable("email") String email) {
+    public ResponseEntity<List<Register>> getRegistration(@PathVariable("email") String email) {
         return new ResponseEntity<List<Register>>(this.regserv.getRegisteredStudent(email), HttpStatus.FOUND);
     }
 
-    @PutMapping(value = "/api/Registration/update")
+    @PutMapping(value = "/api/registration/update")
     public ResponseEntity<Register> update(@RequestBody Register register){
-        return new ResponseEntity<Register>(this.regserv.updateRegistration(register.getEmail(), register.getCourse(), register), HttpStatus.OK);
+        return new ResponseEntity<Register>(this.regserv.updateRegistration(register.getStudent_email(), register.getCourse_name(), register), HttpStatus.OK);
 
     }
     

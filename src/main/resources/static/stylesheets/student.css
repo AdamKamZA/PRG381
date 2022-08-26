@@ -46,13 +46,13 @@ h1{
 }
 #user_info{
     display: grid;
-    grid-template-rows: .2fr 1fr .2fr 1fr .2fr 1fr .2fr 1fr .2fr 1fr;
+    grid-template-rows: repeat(6, .2fr 1fr);
     row-gap: 10px;
     text-align: center;
 }
 .user_input{
     color: white;
-    height: 70%;
+    height: 100%;
     width: 50%;
     min-width: fit-content;
     margin: 0 auto;
@@ -65,20 +65,23 @@ h1{
     outline: none;
     background-color: rgba(255,255,255,.5)
 }
-#back{
+.button{
     width: 60px;
     height: 60px;
     margin: auto;
     padding: 10px;
     border-radius: 50%;
-
+    
     background-color: black;
     color: white;
     outline: 8px #F9E400 solid;
     box-shadow: 0 10px 0 8px black,  0 15px 0 8px white;
     transition: all .2s ease;
 }
-#back:hover{
+#update{
+    margin-top: 10px;
+}
+.button:hover{
     box-shadow: 0 -1px 0 8px black,  0 5px 0 8px white;
     transform: translateY(10px);
 }

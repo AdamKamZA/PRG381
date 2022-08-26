@@ -28,9 +28,28 @@ public class Student {
     @Column(name = "student_password", nullable = true)
     private String student_password;
 
-    public String getEmail(){
-        return this.student_email;
-    }
+    // public String getEmail(){
+    //     return this.student_email;
+    // }
 
+    // public int getID(){
+    //     return this.student_id;
+    // }
+
+    // public void setName(String name){
+    //     this.student_name = name;
+    // }
+
+    // public void setAddress(String addr){
+    //     this.student_address = addr;
+    // }
+
+    // public void setEmail(String email){
+    //     this.student_email = email;
+    // }
+
+    // public void setPassword(String Pass){
+    //     this.student_password = Pass;       
+    // }
     
 }

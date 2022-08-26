@@ -1,6 +1,7 @@
 package com.studentportal.portal.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,8 +35,8 @@ public class StudentServiceImpl implements StudentService{
         Student target = null;
 
         for(Student s : stdns){
-            if(s.getEmail()!=null){
-                if(s.getEmail().equalsIgnoreCase(email)){
+            if(s.getStudent_email()!=null){
+                if(s.getStudent_email().equalsIgnoreCase(email)){
                     target=s;
                     break;    
                 }
@@ -64,12 +65,21 @@ public class StudentServiceImpl implements StudentService{
     }
     
     @Override
-    public Student update(String email,Student newStudentData) {
+    public Student update(Student student) {
       try{
-        Student oldStudentData = deleteStudent(email);
-        if(oldStudentData!=null){
-        Student newStudent = saveStudent(newStudentData);
-        return newStudent;
+        if(studentRep.findById(student.getStudent_id()).isPresent()){
+            Optional<Student> oldData = studentRep.findById(student.getStudent_id());
+            
+            Student oldStudent = oldData.get();
+
+            oldStudent.setStudent_address(student.getStudent_address());
+            oldStudent.setStudent_email(student.getStudent_email());
+            oldStudent.setStudent_name(student.getStudent_name());
+            oldStudent.setStudent_password(student.getStudent_password());
+
+
+            Student newStudent = saveStudent(oldStudent);
+            return newStudent;        
         }
         else{
             throw new Exception("student not found");

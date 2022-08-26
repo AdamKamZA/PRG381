@@ -1,6 +1,7 @@
 package com.studentportal.portal.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -46,8 +47,8 @@ public class AdminServiceImpl implements AdminService{
        admins target = null;
 
        for(admins admin : admnList){
-        if(admin.getEmail()!=null){
-            if(admin.getEmail().equalsIgnoreCase(email)){
+        if(admin.getAdmin_email()!=null){
+            if(admin.getAdmin_email().equalsIgnoreCase(email)){
                 target = admin;
                 break;
             }
@@ -69,12 +70,20 @@ public class AdminServiceImpl implements AdminService{
     }
 
     @Override
-    public admins updateAdmins(String email, admins admin) {
+    public admins updateAdmins(admins admin) {
         try{
-            admins oldData = deleteAdmin(email);
-            if(oldData!=null){
-            admins newAdmin = saveAdmin(admin);
-            return newAdmin;
+            
+            Optional<admins> target = adminRepo.findById(admin.getId());
+            
+            if(target.isPresent()){
+                admins targetAdmin = target.get();
+                
+                targetAdmin.setAdmin_name(admin.getAdmin_email());
+                targetAdmin.setAdmin_name(admin.getAdmin_name());
+                targetAdmin.setContact(admin.getContact());
+                targetAdmin.setAdmin_password(admin.getAdmin_password());
+                adminRepo.save(targetAdmin);
+                return targetAdmin;
             }
             else{
                 throw new Exception("admin not found");

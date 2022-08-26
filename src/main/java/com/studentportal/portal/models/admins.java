@@ -26,12 +26,10 @@ public class admins {
     private String admin_email;
 
     @Column(name = "password")
-    private String password;
+    private String admin_password;
 
     @Column(name = "contact")
     private String contact;
 
-    public String getEmail(){
-        return this.admin_email;
-    }
+   
 }

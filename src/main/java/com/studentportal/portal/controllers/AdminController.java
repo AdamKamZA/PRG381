@@ -62,12 +62,7 @@ public class AdminController {
 
     @PutMapping(value="/api/admin/update")
     public ResponseEntity<admins> update(@RequestBody admins admin) {
-        return  new ResponseEntity<admins>(this.adminServ.updateAdmins(admin.getEmail(), admin), HttpStatus.OK);
+        return  new ResponseEntity<admins>(this.adminServ.updateAdmins(admin), HttpStatus.OK);
 
     }
-
-
-
-
-
 }

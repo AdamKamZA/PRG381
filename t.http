@@ -1,19 +1,10 @@
-POST http://localhost:8080/api/admin/save
-Content-Type: application/json
-
-{
-   "admin_name":"adam",
-   "password":"aaa",
-   "contact":"Francois"
-}
-###
 POST  http://localhost:8080/api/students/save
 Content-Type: application/json
 
 {
-   "student_name":"Adam Kam",
-   "student_address":"1278 ahdsjabhd",
-   "student_email":"a@j.com",
+   "student_name":"Adam Steph",
+   "student_address":"1278 asdf",
+   "student_email":"a@kksa.com",
    "student_password":"123"
 }
 
@@ -33,7 +24,7 @@ GET http://localhost:8080/api/students/email/a@a.om.labs.com
 
 ###
 
-DELETE http://localhost:8080/api/students/delete/a@j.com
+DELETE http://localhost:8080/api/students/delete/a@jj.com
 
 ###
 
@@ -41,10 +32,10 @@ PUT http://localhost:8080/api/students/update
 Content-Type: application/json
 
 {
- 
+   "student_i":13,
    "student_name":"Francois Greeff",
-   "student_address":"1278 ahdsjabhd",
-   "student_email":"a@a.om.labs.com",
+   "student_address":" ahdsjabhd",
+   "student_email":"adam@test.com",
    "student_password":"33",
    "email":"a@a.om.labs.com"
 
@@ -58,7 +49,7 @@ Content-Type: application/json
 {
    "admin_name":"Adam",
    "admin_email":"b@a.com",
-   "password":"123",
+   "admin_password":"123",
    "contact":"01239ssssss"
 }
 
@@ -91,9 +82,29 @@ POST http://localhost:8080/api/registration/save
 Content-Type: application/json
 
 {
-   "student_name":"Adam Kam",
-   "student_address":"1278 ahdsjabhd",
-   "student_email":"a@j.com",
+   "student_name":"Adam Steph",
+   "student_address":"1278 asdf",
+   "student_email":"a@kksa.com",
    "student_password":"123",
    "course_name":"BComp"
 }
+
+###
+PUT http://localhost:8080/api/registration/update 
+Content-Type: application/json
+
+{
+   "student_name":"Adam Kaminski",
+   "student_address":"1278 huckleberryff",
+   "student_email":"a@jj.com",
+   "student_password":"125",
+   "course_name":"BComp"
+}
+
+###
+
+GET http://localhost:8080/api/registration/all
+
+###
+
+DELETE http://localhost:8080/api/registration/delete/email/a@jj.com/course/Bcomp

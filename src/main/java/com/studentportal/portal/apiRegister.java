@@ -2,6 +2,15 @@ package com.studentportal.portal;
 
 public class apiRegister {
     private String student_name, student_address, student_email, student_password, course_name;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public apiRegister(){}
 
@@ -51,7 +60,7 @@ public class apiRegister {
         if(student_name.indexOf(" ")==-1){
             student_name = student_name + " None";
         }
-        return String.format("{'name':%s , 'address':%s , 'email':%s , 'password':%s, 'course':%s}", student_name, student_address, student_email, student_password, course_name);
+        return String.format("{'id':%d, 'name':%s , 'address':%s , 'email':%s , 'password':%s, 'course':%s}", id, student_name, student_address, student_email, student_password, course_name);
     }
 
 }

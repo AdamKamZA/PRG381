@@ -10,7 +10,5 @@ public interface StudentService {
     Student getStudent(String email);
     List<Student> getAllStudents();
    Student deleteStudent(String email);
-    Student update(String email, Student student);
-
-
+    Student update(Student student);
 }

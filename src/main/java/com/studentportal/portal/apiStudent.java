@@ -7,6 +7,7 @@ public class apiStudent {
 
     //Student JSON keys
     private String student_name, student_address, student_email, student_password;
+    private int student_id;
 
     public apiStudent(){}
 
@@ -38,6 +39,13 @@ public class apiStudent {
         return student_password;
     }
 
+    public int getStudent_id(){
+        return student_id;
+    }
+    public void setStudent_id(int student_id){
+        this.student_id=student_id;
+    }
+
     public void setStudent_password(String student_password) {
         this.student_password = student_password;
     }
@@ -47,6 +55,6 @@ public class apiStudent {
         if(student_name.indexOf(" ")==-1){
             student_name = student_name + " None";
         }
-        return String.format("{'name':%s , 'address':%s , 'email':%s , 'password':%s}", student_name, student_address, student_email, student_password);
+        return String.format("{'id':%d,'name':%s , 'address':%s , 'email':%s , 'password':%s}", student_id, student_name, student_address, student_email, student_password);
     }
 }
