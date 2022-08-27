@@ -48,7 +48,7 @@ Content-Type: application/json
 
 {
    "admin_name":"Adam",
-   "admin_email":"b@a.com",
+   "admin_email":"b@ad.com",
    "admin_password":"123",
    "contact":"01239ssssss"
 }

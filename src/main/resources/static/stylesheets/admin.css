@@ -144,3 +144,17 @@ h1{
     box-shadow: inset 0 0 0 10px #F9E400;
     border-radius: 15px;
 }
+#add{
+    color: white;
+    width: 90%;
+    margin: auto;
+    background-color: transparent;
+    font-weight: bolder;
+    border: 1px solid green;
+    box-shadow: inset 0 0 0 -10px green;
+    transition: all .2s ease;
+}
+#add:hover{
+    box-shadow: inset 0 0 0 10px green;
+    border-radius: 15px;
+}
