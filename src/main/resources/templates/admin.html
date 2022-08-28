@@ -16,7 +16,8 @@
         <section id="input_container">
             <h1>Admin</h1>
             <div id="search_container">
-                <label for="">Search</label><input type="text" placeholder="e.g. 6771"><button>🔍</button>
+                <label for="srch">Search</label><input type="text" placeholder="e.g. dd@student.be..." name="srch"
+                    id="srchInput"><button id="search">🔍</button>
             </div>
             <section id="form">
                 <div id="titles">
@@ -28,16 +29,16 @@
                     <span class="title">Course Name:</span>
                 </div>
                 <div id="data">
-                    <section th:each="stud:${students}">
+                    <section th:each="stud:${students}" th:id="${stud.get('email')}">
                         <input th:value="${stud.getInt('id')}">
                         <input th:value="${stud.getString('name').substring(0,stud.getString('name').indexOf(' '))}">
                         <input th:value="${stud.getString('name').substring(stud.getString('name').indexOf(' '))}">
                         <input th:value="${stud.getString('address')}">
-                        <input th:value="${stud.get('email')}" th:id="${stud.get('email')}">
+                        <input th:value="${stud.get('email')}" th:id="${stud.get('email')}" type="email">
                         <input th:value="${stud.get('course')}">
                         <button class="update">✔️</button>
                     </section>
-                    <section>
+                    <section id="addStudent">
                         <input disabled>
                         <input>
                         <input>
@@ -64,24 +65,24 @@
                     //access all sibling data
                     let siblings = [].slice.call(btnsUpdate[i].parentElement.childNodes);
                     siblings = siblings.filter(item => item.localName == "input");
-                    let name = (siblings[1].value + " " + siblings[2].value).replace(/  +/g, " "); 
+                    let name = (siblings[1].value + " " + siblings[2].value).replace(/  +/g, " ");
                     const requestOptions = {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ "id": siblings[0].value, "student_name":name, "student_address": siblings[3].value, "student_email": siblings[4].id, "course_name": siblings[5].value })
+                        body: JSON.stringify({ "id": siblings[0].value, "student_name": name, "student_address": siblings[3].value, "student_email": siblings[4].id, "course_name": siblings[5].value })
                     };
                     const studRequestOptions = {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ "student_id": siblings[0].value, "student_name": name, "student_address": siblings[3].value, "student_email": siblings[4].id})
+                        body: JSON.stringify({ "student_id": siblings[0].value, "student_name": name, "student_address": siblings[3].value, "student_email": siblings[4].id })
                     };
 
                     fetch('http://localhost:8080/api/registration/update', requestOptions)
                         .then(response => {
-                           fetch('http://localhost:8080/api/students/update', studRequestOptions)
-                           .then(()=>{
-                            alert("Student Updated.")
-                           })
+                            fetch('http://localhost:8080/api/students/update', studRequestOptions)
+                                .then(() => {
+                                    alert("Student Updated.")
+                                })
                         });//show updated record if we want
                 })
             }
@@ -96,7 +97,7 @@
                 // console.log(JSON.stringify({ "student_name": (addSib[1].value +" "+ addSib[2].value), "student_address": addSib[3].value, "student_email": addSib[4].value, "course_name": addSib[5].value }))
                 addSib = addSib.filter(item => item.localName == "input");
                 let name = addSib[1].value + " " + addSib[2].value
-                
+
                 const addRequestOptions = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -105,7 +106,7 @@
                 const addStudRequestOptions = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ "student_name": name, "student_address": addSib[3].value, "student_email": addSib[4].value, "student_password":"none"})
+                    body: JSON.stringify({ "student_name": name, "student_address": addSib[3].value, "student_email": addSib[4].value, "student_password": "none" })
                 };
 
                 fetch('http://localhost:8080/api/registration/save', addRequestOptions)
@@ -117,6 +118,33 @@
                                 window.location.reload();
                             });//show updated record if we want
                     })
+            })
+
+            //search functionality
+            document.getElementById("search").addEventListener('click', () => {
+                //get form and collect data
+                let studEmail = document.getElementById('srchInput').value;
+                if(studEmail == 'Reset'){window.location.reload(); return;}
+                if (studEmail.length == 0) return;
+                let formData = [].slice.call(document.getElementById('data').children);
+                let hasStudent = false;
+                formData.forEach(sec => {
+                    if (sec.id == "addStudent") {
+                        //do nothing
+                    } else if (sec.id != studEmail) {
+                        sec.style.display = "none";
+                    } else {
+                        hasStudent = true;
+                    }
+                })
+                if (!hasStudent) {
+                    alert("This student does not exist");
+                    window.location.reload();
+                }
+
+                document.getElementById('search').innerText = '⎌'
+                document.getElementById('search').style = "color:white; width:24px"
+                document.getElementById('srchInput').value = 'Reset'
             })
 
         })
