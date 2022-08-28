@@ -75,7 +75,7 @@ public class StudentServiceImpl implements StudentService{
             oldStudent.setStudent_address(student.getStudent_address());
             oldStudent.setStudent_email(student.getStudent_email());
             oldStudent.setStudent_name(student.getStudent_name());
-            oldStudent.setStudent_password(student.getStudent_password());
+            oldStudent.setStudent_password((student.getStudent_password() == null) ? oldStudent.getStudent_password() : student.getStudent_password());
 
 
             Student newStudent = saveStudent(oldStudent);

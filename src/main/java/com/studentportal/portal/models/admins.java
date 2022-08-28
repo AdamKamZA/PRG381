@@ -25,7 +25,7 @@ public class admins {
     @Column(name = "admin_email")
     private String admin_email;
 
-    @Column(name = "password")
+    @Column(name = "admin_password")
     private String admin_password;
 
     @Column(name = "contact")
